@@ -26,6 +26,7 @@ public class WheelOfFortune
       System.out.println("2. Buy a vowel");
       System.out.println("3. Solve the puzzle");
       System.out.println("4. Quit the game");
+      System.out.println("5. Test");
       
       int userChoice;
      
@@ -45,14 +46,46 @@ public class WheelOfFortune
                       break;
               case 3: System.out.println(" You chose to solve the puzzle.");
                       break;
+              case 5: testInput();
+                        break;
             }
             
             String userLetter;
             System.out.println("Enter a letter: ");
             userLetter = key.nextLine();
+            char u = userLetter.charAt(0);
+            
+            while(userLetter.length() > 1 || ((int)u < 65 || (int)u > 122))
+            {
+                System.out.println("Error. Enter a valid letter.");
+                System.out.println("Enter a letter: ");
+                userLetter = key.nextLine();
+                u = userLetter.charAt(0);
+            }
+            
             System.out.println("You entered: " + userLetter);
       }
               
+  }
+  
+  static void testInput()
+  {
+            String userLetter;
+            Scanner key = new Scanner(System.in);
+            
+            System.out.println("Enter a letter: ");
+            userLetter = key.nextLine();
+            char u = userLetter.charAt(0);
+            
+            while(userLetter.length() > 1 || ((int)u < 65 || (int)u > 122))
+            {
+                System.out.println("Error. Enter a valid letter.");
+                System.out.println("Enter a letter: ");
+                userLetter = key.nextLine();
+                u = userLetter.charAt(0);
+            }
+            
+            System.out.println("You entered: " + userLetter);
   }
   
 }
