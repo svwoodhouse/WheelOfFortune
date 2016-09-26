@@ -12,13 +12,29 @@ public class WheelClass
     
     void spinWheel()
     {
-        double r = Math.random() *10;
-        double weight = 24;
+        // Random choses a number between 0 and 1;
+        // Multiply by 24 to find a whole number to compare it with;
+        int r = (int)Math.random() * 24;
+        //double weight = 24;
         
-        String[] wedges = {"300", "350", "400","450","500","550","600","700","800","900","5000","Lose a Turn", "Bankrupt"};
-        double[] probabilities = {5,1,2,1,3,1,3,1,2,2,1,1,1};
+        int wedges[] = {300,350,400,450,500,550,600,700,800,900,5000};
+      //  double[] probabilities = {5,1,2,1,3,1,3,1,2,2,1,1,1};
         
-        System.out.println("You landed on: ");
+        // If random number is one or zero, results in the string outputs
+        if(r == 0)
+        {
+            System.out.println("You landed on: Lose a turn ");
+        }
+        
+        else if(r==1)
+        {
+           System.out.println("You landed on: Bankrupt"); 
+        }
+        
+        else
+        {
+         System.out.println("You landed on: " + wedges[r]);
+        }
       
     }
     
