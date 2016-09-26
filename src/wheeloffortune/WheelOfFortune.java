@@ -48,6 +48,8 @@ public class WheelOfFortune
             switch(userChoice)
             {
               case 1: System.out.println("You chose to spin the wheel.");
+                      wheel.spinWheel();
+                      wheel.userGuess();
                       break;
               case 2: System.out.println("You chose to buy a vowel.");
                       wheel.userGuess();
