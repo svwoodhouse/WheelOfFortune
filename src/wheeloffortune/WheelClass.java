@@ -22,7 +22,7 @@ public class WheelClass
     public String initPhraseConcealed = phrases[randPhrase].replaceAll("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]", "_ ");
     public String endPhraseConcealed = phrases[randPhrase].replaceAll("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]", "_");
     public int length = phrases[randPhrase].length();
-    public char userGuessPhrase[] = endPhraseConcealed.toCharArray();
+    public char userGuessPhrase[] = initPhraseConcealed.toCharArray();
     
     // This just keeps track of the amount that the user spun
     public int wedge = 0;
@@ -221,6 +221,7 @@ void toggleOption(int i)
             System.out.println("You entered: " + userLetter);
   }
   
+ // Displays the main menu
 void menu()
 {
         System.out.println("======================");
@@ -236,6 +237,9 @@ void menu()
 }
 
 
+//Function for when users enter Solve Puzzle Mode
+// Allows user to enter a letter until they guess all letters correctly
+// If they guess one letter wrong, game over!
 void solvePuzzle()
 {
       Scanner key = new Scanner(System.in);
@@ -246,14 +250,25 @@ while(run)
 {
       System.out.println("Enter a letter: ");
 
+      // User Input letter
       userLetter = key.nextLine();
-      char u = userLetter.charAt(0);
-      char phraseArray[] = phrases[randPhrase].toCharArray();
       
+      // changes the user input into a char
+      char u = userLetter.charAt(0);
+      
+      // Creates a char array from the phrase of the puzzle
+      char phraseArray[] = phrases[randPhrase].toCharArray();
+ 
+// Checks to see if the letter the user guess is in the phrase
 if(phrases[randPhrase].contains(userLetter))
     {  
+        // for loop that goes through each letter in the char array and sees if the user
+        // input or guess is in the char arrar (phraseArray)
      for(int i = 0; i < phraseArray.length; i++)
      {       
+         // if the user guess is in the array, adds the letter to the board displaying where
+         // the user guessed correctly and adds money to the users winnings
+         
         if(phraseArray[i] == u)
         {
              this.userGuessPhrase[i] = u;
@@ -271,6 +286,7 @@ if(phrases[randPhrase].contains(userLetter))
                 this.userGuessPhrase[i] = '_';  
         }
         
+        // If the user has every letter correct
         if (this.userGuessPhrase.toString().equalsIgnoreCase(this.phrases[randPhrase]))
         {
             System.out.println("You win!");
@@ -278,6 +294,7 @@ if(phrases[randPhrase].contains(userLetter))
         }
      }
     }
+// If user guessed the wrong letter then they lose
 else
 {
     System.out.println("You lose!");

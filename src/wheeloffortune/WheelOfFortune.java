@@ -1,5 +1,5 @@
 /*
-* CMPSC 261, Section 1
+* IST 261, Section 1
 * Fall 2016
 * Instructor: Phil O'Connell
 * Student: Sydnee Woodhouse
@@ -27,6 +27,9 @@ public class WheelOfFortune
       int userChoice;
       int count = 0;
       
+      // I used this menu for users open up the game the first time because I couldn't figure out how to have the
+      // phrase show up like "_ _ _ _" when the user began to guess the letters
+      // This allows the user to get a general idea at how many letters the user has to guess
         System.out.println("======================");
         System.out.println("=  Wheel Of Fortune  =");
         System.out.println("======================");
