@@ -26,18 +26,19 @@ public class WheelOfFortune
     // Initial User 
       int userChoice;
       int count = 0;
+      
         System.out.println("======================");
         System.out.println("=  Wheel Of Fortune  =");
         System.out.println("======================");
-        System.out.println(wheel.phraseConcealed);
+        System.out.println(wheel.initPhraseConcealed);
         System.out.println("1. Spin the wheel");
         System.out.println("2. Buy a vowel");
         System.out.println("3. Solve the puzzle");
         System.out.println("4. Quit");
-        System.out.println("8. Toggle puzzle reveal");
-        System.out.println("9. Test letter input");
         System.out.println("Enter choice: ");
-          
+        
+        // Use the label mainLoop equal to the while loop
+        mainLoop:          
       while(true)
       {           
         userChoice = keyboard.nextInt();
@@ -49,14 +50,14 @@ public class WheelOfFortune
             {
               case 1: System.out.println("You chose to spin the wheel.");
                       wheel.spinWheel();
-                      wheel.userGuess();
                       break;
               case 2: System.out.println("You chose to buy a vowel.");
-                      wheel.userGuess();
+                      wheel.buyVowel();
                       break;
               case 3: System.out.println(" You chose to solve the puzzle.");
-                      wheel.userGuess();
-                      break;
+                      wheel.solvePuzzle();
+                      // Breaks from the while loop
+                      break mainLoop;
               case 8: count+=1;
                       wheel.toggleOption(count);
                       break;
