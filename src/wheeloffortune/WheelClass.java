@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-public class WheelClass
+public class WheelClass extends JFrame
 {
     // Variables to keep track of the user information
     public int userWinnings = 0;
@@ -38,17 +40,18 @@ public class WheelClass
         
         int wedges[] = {300,300,300,300,300,350,400,400,450,500,500,500,550,600,600,600,700,700,800,800,900,5000};
         
+     
         // If random number is one or zero, results in the string outputs and setsthe user winnings to zero
         if(randWedge == 0)
         {
-            System.out.println("You landed on: Lose a turn ");
+            JOptionPane.showMessageDialog(null,"You landed on: Lose a turn ");
             this.userWinnings +=0;
             this.wedge = 0;
         }
         
         else if(randWedge==1)
         {
-           System.out.println("You landed on: Bankrupt"); 
+           JOptionPane.showMessageDialog(null,"You landed on: Bankrupt"); 
            this.userWinnings = 0;
            this.wedge = 0;
         }
@@ -56,7 +59,7 @@ public class WheelClass
         // Sets the wedge variable to the number given for future reference
         else
         {
-         System.out.println("You landed on: " + wedges[randWedge]);
+         JOptionPane.showMessageDialog(null,"You landed on: " + wedges[randWedge]);
          this.wedge = wedges[randWedge];
         }
         
@@ -75,7 +78,7 @@ void buyVowel()
     //Checks to see if the user has enough money
     if(this.userWinnings < 250)
     {
-        System.out.println("Error. You don't have enough money to buy vowels.");
+        JOptionPane.showMessageDialog(null, "Error. You don't have enough money to buy vowels.");
         menu();
     }
     
@@ -83,7 +86,7 @@ void buyVowel()
     else
     {
         this.userWinnings -=250;
-        System.out.println("Enter a vowel: ");
+        JOptionPane.showMessageDialog(null,"Enter a vowel: ");
         vowel = input.nextLine();
         vowelChar = vowel.charAt(0);
         
@@ -147,7 +150,7 @@ void toggleOption(int i)
     {
       Scanner key = new Scanner(System.in);
       String userLetter;
-      System.out.println("Enter a letter: ");
+      JOptionPane.showMessageDialog(null,"Enter a letter: ");
       
       userLetter = key.nextLine();
       char u = userLetter.charAt(0);
@@ -160,16 +163,16 @@ void toggleOption(int i)
       // The numbers 65, 69, 73, 79, 85 represent the decimal values for the vowels in the ASCII table
       while(userLetter.length() > 1 || ((int)u < 65 || (int)u > 122 || (int)u == 65 || (int) u == 69 || (int) u == 73 || (int) u == 79 || (int) u == 85))
         {
-            System.out.println("Error. Enter a valid letter.");
-            System.out.println("Enter a letter: ");
+            JOptionPane.showMessageDialog(null,"Error. Enter a valid letter.");
+            JOptionPane.showMessageDialog(null,"Enter a letter: ");
             userLetter = key.nextLine();
             u = userLetter.charAt(0);
         }
       
       while(this.userGuessLetters.contains(u))
       {
-            System.out.println("Error. Already entered that letter.");
-            System.out.println("Enter a different letter: ");
+            JOptionPane.showMessageDialog(null,"Error. Already entered that letter.");
+            JOptionPane.showMessageDialog(null,"Enter a different letter: ");
             userLetter = key.nextLine();
             u = userLetter.charAt(0);
       }
@@ -206,19 +209,19 @@ void toggleOption(int i)
             String userLetter;
             Scanner key = new Scanner(System.in);
             
-            System.out.println("Enter a letter: ");
+            JOptionPane.showMessageDialog(null,"Enter a letter: ");
             userLetter = key.nextLine();
             char u = userLetter.charAt(0);
             
             while(userLetter.length() > 1 || ((int)u < 65 || (int)u > 122))
             {
-                System.out.println("Error. Enter a valid letter.");
-                System.out.println("Enter a letter: ");
+                JOptionPane.showMessageDialog(null,"Error. Enter a valid letter.");
+                JOptionPane.showMessageDialog(null,"Enter a letter: ");
                 userLetter = key.nextLine();
                 u = userLetter.charAt(0);
             }
             
-            System.out.println("You entered: " + userLetter);
+            JOptionPane.showMessageDialog(null,"You entered: " + userLetter);
   }
   
  // Displays the main menu
@@ -248,7 +251,7 @@ void solvePuzzle()
       
 while(run)
 {
-      System.out.println("Enter a letter: ");
+     JOptionPane.showMessageDialog(null,"Enter a letter: ");
 
       // User Input letter
       userLetter = key.nextLine();
@@ -289,7 +292,7 @@ if(phrases[randPhrase].contains(userLetter))
         // If the user has every letter correct
         if (this.userGuessPhrase.toString().equalsIgnoreCase(this.phrases[randPhrase]))
         {
-            System.out.println("You win!");
+            JOptionPane.showMessageDialog(null,"You win!");
             break;
         }
      }
@@ -297,7 +300,7 @@ if(phrases[randPhrase].contains(userLetter))
 // If user guessed the wrong letter then they lose
 else
 {
-    System.out.println("You lose!");
+    JOptionPane.showMessageDialog(null,"You lose!");
     break;
 }
 }

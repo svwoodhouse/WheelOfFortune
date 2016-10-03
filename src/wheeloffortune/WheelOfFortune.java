@@ -8,6 +8,7 @@
 package wheeloffortune;
 
 import java.util.Scanner;
+import javax.swing.JFrame;
 
 public class WheelOfFortune 
 {
@@ -16,6 +17,8 @@ public class WheelOfFortune
       Scanner keyboard = new Scanner(System.in);
       Scanner key = new Scanner(System.in);
       WheelClass wheel = new WheelClass();
+      MainMenuGUI screen = new MainMenuGUI();
+    
       
     // Present the user with a simple text menu of those choices
     // spin the wheel, buy a vowel, solve the puzzle, or quit the game
